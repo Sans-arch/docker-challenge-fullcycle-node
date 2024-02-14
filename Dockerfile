@@ -1,4 +1,4 @@
-FROM node:alpine AS build
+FROM node:alpine
 WORKDIR /app
 
 ENV DOCKERIZE_VERSION v0.7.0
@@ -11,5 +11,6 @@ RUN apk update --no-cache \
 COPY ./src/package.json ./src/package-lock.json ./
 RUN npm install
 COPY ./src/index.js .
+
 EXPOSE 3000
 ENTRYPOINT [ "node", "index.js" ]

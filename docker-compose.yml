@@ -11,6 +11,9 @@ services:
       - rede-interna-entre-apps
     depends_on:
       - db
+    volumes:
+      - ./src:/app
+      - /app/node_modules
   proxy:
     container_name: "nginx"
     build:
